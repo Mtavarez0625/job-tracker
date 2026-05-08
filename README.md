@@ -9,15 +9,15 @@ https://job-tracker-sigma-six.vercel.app
 ## Features
 
 - Secure authentication with NextAuth
+- Protected dashboard routes
 - Create, edit, and delete job applications
 - Application status tracking
 - Search and filtering
-- Responsive modern UI
 - Optimistic UI updates
 - Toast notifications
-- Protected dashboard routes
+- Responsive modern UI
 - PostgreSQL database with Prisma ORM
-- Fully deployed on Vercel
+- Deployed on Vercel
 
 ## Tech Stack
 
@@ -31,20 +31,16 @@ https://job-tracker-sigma-six.vercel.app
 - Neon Database
 - Vercel
 
-## Screenshots
+## Project Highlights
 
-### Dashboard
+- Built protected API routes using the Next.js App Router
+- Connected Prisma ORM to a production PostgreSQL database
+- Implemented authentication and session-based access control
+- Added optimistic UI updates for a smoother user experience
+- Designed a clean, responsive SaaS dashboard for tracking job applications
 
 ## Getting Started
 
 ```bash
 npm install
 npm run dev
-
-## Author
-
-Marcos Tavarez
-
-- Portfolio: https://marcostavarez.com
-- GitHub: https://github.com/Mtavarez0625
-- LinkedIn: https://www.linkedin.com/in/marcos-tavarez/
