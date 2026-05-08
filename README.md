@@ -1,204 +1,170 @@
 # Job Tracker SaaS
 
-A production-ready full-stack SaaS application for tracking job applications, interviews, offers, and recruiting progress.
+**Production-ready SaaS platform for tracking job applications, interviews, and offers — built with Next.js 16, TypeScript, Prisma, and NextAuth.**
 
-Built with Next.js 16, React 19, TypeScript, Prisma ORM, PostgreSQL, NextAuth, and Tailwind CSS.
-
----
-
-## 🚀 Live Demo
-
-https://job-tracker-sigma-six.vercel.app
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-job--tracker--sigma--six.vercel.app-black?style=flat-square&logo=vercel)](https://job-tracker-sigma-six.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Mtavarez0625%2Fjob--tracker-black?style=flat-square&logo=github)](https://github.com/Mtavarez0625/job-tracker)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 ---
 
-## 📌 Overview
+## Overview
 
-Job Tracker SaaS is a modern job application management platform designed to help users organize and streamline their job search pipeline in one secure dashboard.
+Job Tracker is a full-stack SaaS application that centralizes your entire job search pipeline in one secure workspace. Manage applications, track interview stages, log offers, and search your history — all backed by a PostgreSQL database with session-based authentication.
 
-Users can:
-
-- Create accounts and securely authenticate
-- Track job applications and recruiting progress
-- Manage interviews and offers
-- Search and filter opportunities
-- Edit or delete applications
-- Monitor job statuses in real time
-
-This project demonstrates production-level full-stack engineering patterns including:
-
-- Authentication
-- Protected routes
-- Database persistence
-- CRUD operations
-- Optimistic UI updates
-- Responsive SaaS UI/UX
-- Production deployment workflows
+Built to demonstrate real-world full-stack skills: protected routes, server-side data fetching, optimistic UI updates, CRUD APIs, and a modern enterprise-grade user experience.
 
 ---
 
-## ✨ Features
+## Screenshots
 
-- 🔐 Secure authentication with NextAuth
-- 🛡️ Protected dashboard routes
-- ➕ Create new job applications
-- ✏️ Edit application details
-- ❌ Delete applications
-- 📊 Application status tracking
-- 🔎 Search and filtering
-- ⚡ Optimistic UI updates
-- 🔔 Toast notifications
-- 📱 Fully responsive design
-- 🗄️ PostgreSQL database integration
-- 🧠 Prisma ORM for database management
-- ☁️ Deployed on Vercel
+### Dashboard
+![Dashboard](./public/screenshots/dashboard.png)
+
+### Add Application
+![Add Application](./public/screenshots/add-application.png)
+
+### Login
+![Login](./public/screenshots/login.png)
+
+### Edit Application
+![Edit Application](./public/screenshots/edit-application.png)
 
 ---
 
-## 🛠️ Tech Stack
+## Features
+
+- **Secure Authentication** — NextAuth session-based login with protected routes and user-scoped data access
+- **Full CRUD** — Create, read, update, and delete job applications with server-side validation
+- **Status Tracking** — Track each application through stages: Wishlist → Applied → Interview → Offer → Rejected
+- **Search & Filtering** — Debounced search and status filtering across all applications
+- **Optimistic UI Updates** — Instant feedback on mutations before server confirmation
+- **Toast Notifications** — Real-time success/error feedback on all user actions
+- **Responsive Dashboard** — Mobile-first SaaS layout with a polished dark aesthetic
+- **Protected API Routes** — All API endpoints require an authenticated session
+- **PostgreSQL Persistence** — Reliable relational data storage via Prisma ORM and Neon
+
+---
+
+## Tech Stack
 
 | Category | Technology |
 |---|---|
-| Framework | Next.js 16 |
-| Frontend | React 19 |
+| Framework | Next.js 16 (App Router) |
 | Language | TypeScript |
+| UI Library | React 19 |
 | Styling | Tailwind CSS |
-| Authentication | NextAuth |
-| Database | PostgreSQL |
 | ORM | Prisma |
-| Database Hosting | Neon |
+| Database | PostgreSQL (Neon) |
+| Auth | NextAuth.js |
 | Deployment | Vercel |
 
 ---
 
-## 📸 Screenshots
+## Architecture Highlights
 
-### Dashboard
-
-Dashboard
-
----
-
-### Applications
-
-Applications
+- **Next.js App Router** — Server components for data fetching, client components for interactivity
+- **Prisma ORM** — Type-safe database access with schema-first modeling connected to Neon PostgreSQL
+- **NextAuth Session Management** — Credential-based authentication with JWT sessions and protected middleware
+- **Protected API Routes** — Every API endpoint validates the session before processing requests
+- **Optimistic Updates** — Local state updated immediately; server state synced in the background
+- **Modular Components** — Reusable UI components with consistent design tokens and props
 
 ---
 
-### Authentication
+## Getting Started
 
-Authentication
+### Prerequisites
 
----
+- Node.js 18+
+- A PostgreSQL database (Neon recommended)
 
-## 🧱 Architecture Highlights
+### Install dependencies
 
-- Built using the Next.js App Router
-- Server + Client Component architecture
-- Secure session-based authentication
-- RESTful API route handlers
-- Prisma ORM connected to Neon PostgreSQL
-- Optimistic state updates for better UX
-- Responsive dashboard design system
-- Environment-secured production deployment
+```bash
+npm install
+```
 
----
+### Set up environment variables
 
-## ⚡ Performance & UX
+Copy the example file and fill in your values:
 
-- Fast page rendering with Next.js 16
-- Responsive mobile-first interface
-- Clean SaaS-style dashboard layout
-- Smooth transitions and modern UI patterns
-- Lightweight and scalable architecture
+```bash
+cp .env.example .env.local
+```
 
----
+### Push database schema
 
-## 📂 Project Structure
+```bash
+npx prisma db push
+```
 
-bash app/  ├── api/  ├── dashboard/  ├── login/  ├── register/  └── applications/  components/ lib/ prisma/ public/ types/ 
+### Run the development server
 
----
+```bash
+npm run dev
+```
 
-## 🧪 Getting Started
-
-Clone the repository:
-
-bash git clone https://github.com/Mtavarez0625/job-tracker.git 
-
-Move into the project directory:
-
-bash cd job-tracker 
-
-Install dependencies:
-
-bash npm install 
-
-Create a .env file using .env.example:
-
-env DATABASE_URL= DIRECT_DATABASE_URL= NEXTAUTH_SECRET= NEXTAUTH_URL= 
-
-Generate the Prisma client:
-
-bash npx prisma generate 
-
-Run the development server:
-
-bash npm run dev 
-
-Open the application:
-
-text http://localhost:3000 
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🏗️ Production Build
+## Environment Variables
 
-bash npm run build 
-
----
-
-## 📚 What I Learned
-
-This project strengthened my understanding of:
-
-- Full-stack SaaS architecture
-- Authentication and route protection
-- Prisma schema modeling
-- PostgreSQL integration
-- Next.js App Router patterns
-- API route handling
-- Optimistic UI strategies
-- Responsive UI/UX engineering
-- Production deployment workflows
+```env
+DATABASE_URL=            # PostgreSQL connection string (Neon pooled URL)
+DIRECT_DATABASE_URL=     # Direct database URL for Prisma migrations
+NEXTAUTH_SECRET=         # Random secret for NextAuth JWT signing
+NEXTAUTH_URL=            # Full URL of your deployment (e.g. http://localhost:3000)
+```
 
 ---
 
-## 🌐 Deployment
+## Production Build
 
-The application is deployed on Vercel with:
+```bash
+npm run build
+npm start
+```
 
-- Environment-secured credentials
-- Production PostgreSQL database
-- Prisma ORM integration
-- Optimized Next.js production builds
-
-Live URL:
-
-https://job-tracker-sigma-six.vercel.app
+Prisma client is generated automatically during the build step via `prisma generate`.
 
 ---
 
-## 👨‍💻 Author
+## Deployment Notes
 
-### Marcos Tavarez
+This project is deployed on **Vercel** with the following configuration:
 
-- Portfolio: https://marcostavarez.com
-- GitHub: https://github.com/Mtavarez0625
-- LinkedIn: https://www.linkedin.com/in/marcos-tavarez/
+- Environment variables set in the Vercel project dashboard
+- `prisma generate` runs as part of the build command
+- Neon PostgreSQL provides a serverless-compatible connection pool
+- `NEXTAUTH_URL` set to the production domain for session handling
 
 ---
 
-## 📄 License
+## What I Learned
 
-This project is licensed under the MIT L
+- Structuring a Next.js App Router project with mixed server/client components for optimal performance
+- Implementing session-based authentication with NextAuth and protecting routes at both the middleware and API level
+- Writing type-safe database queries with Prisma and connecting to a serverless PostgreSQL provider (Neon)
+- Designing optimistic UI patterns that feel instant while maintaining data consistency
+- Building a responsive SaaS dashboard with Tailwind CSS that works across all device sizes
+- Configuring a production deployment on Vercel with secured environment variables and automatic Prisma generation
+
+---
+
+## Author
+
+**Marcos Tavarez** — Full-Stack Developer
+
+- Portfolio: [marcostavarez.com](https://marcostavarez.com)
+- GitHub: [github.com/Mtavarez0625](https://github.com/Mtavarez0625)
+- LinkedIn: [linkedin.com/in/marcos-tavarez](https://www.linkedin.com/in/marcos-tavarez/)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
